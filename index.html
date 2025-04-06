@@ -1,9 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Kick App Callback</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAuth Callback</title>
 </head>
 <body>
-    <h1>¡Todo listo!</h1>
+    <h1>¡Autorización completada!</h1>
+    <p>Gracias por autorizar. Ahora puedes copiar el código de la URL.</p>
+    <script>
+        // Captura el parámetro "code" de la URL
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get("code");
+        if (code) {
+            document.body.innerHTML += `<p>Authorization Code: <strong>${code}</strong></p>`;
+        } else {
+            document.body.innerHTML += `<p>No se encontró ningún código en la URL.</p>`;
+        }
+    </script>
 </body>
 </html>
